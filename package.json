@@ -1,0 +1,34 @@
+{
+  "name": "3d-audio-visualizer",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "3D audio visualizer using the FFT library from p5.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoPedro/3d-audio-visualizer.git"
+  },
+  "keywords": [
+    "p5.js",
+    "3d",
+    "webgl",
+    "fft",
+    "audio",
+    "visualizer"
+  ],
+  "author": "João Pedro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoPedro/3d-audio-visualizer/issues"
+  },
+  "homepage": "https://github.com/JoPedro/3d-audio-visualizer#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
