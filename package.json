@@ -5,7 +5,7 @@
   "description": "3D audio visualizer using the FFT library from p5.js",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon ./app.js"
+    "dev": "node ./app.js"
   },
   "repository": {
     "type": "git",
@@ -27,8 +27,5 @@
   "homepage": "https://github.com/JoPedro/3d-audio-visualizer#readme",
   "dependencies": {
     "express": "^4.21.2"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.9"
   }
 }
