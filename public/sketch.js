@@ -5,38 +5,58 @@ let song
 let waveformCanvas
 let fft
 let waveform
+let playToggle
+let stopBtn
 
 function preload() {
   song = loadSound('./audio/griselda type beat.mp3')
 }
 
-function mouseClicked() {
+function togglePlay() {
   if (!song.isPlaying()) {
+    playToggle.html('pause')
     song.play()
   }
+  else {
+    playToggle.html('play')
+    song.pause()
+  }
+}
+
+function stopSong() {
+  song.stop();
 }
 
 function setup() {
   createCanvas(W, H, WEBGL)
   waveformCanvas = createGraphics(W, H)
   fft = new p5.FFT()
+
+  playToggle = createButton('play')
+  playToggle.mousePressed(togglePlay)
+  playToggle.style('margin-left:4px')
+
+  stopBtn = createButton('stop')
+  stopBtn.mousePressed(stopSong)
+
+  song.onended(stopSong)
 }
 
 function draw() {
   // orbitControl()
   background('#232627')
-  waveform = fft.waveform();
+  waveform = fft.waveform()
   noFill()
 
   push()
-  stroke('#11d116')
-  rotateX(frameCount * 0.02);
-  rotateY(frameCount * 0.02);
+  stroke(255)
+  rotateX(frameCount * 0.02)
+  rotateY(frameCount * 0.02)
   box(50)
   pop()
 
   push()
-  stroke(255)
+  stroke('#11d116')
   translate(-width / 2, -height / 2)
   image(waveformCanvas, 0, 0)
 
@@ -48,6 +68,5 @@ function draw() {
     vertex(x, y + height / 4)
   }
   endShape()
-
   pop()
 }
