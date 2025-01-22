@@ -27,5 +27,8 @@
   "homepage": "https://github.com/JoPedro/3d-audio-visualizer#readme",
   "dependencies": {
     "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/p5": "^1.7.6"
   }
 }
