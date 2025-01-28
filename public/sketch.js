@@ -1,5 +1,8 @@
 const W = 400
 const H = 400
+const PLAY = 'play'
+const PAUSE = 'pause'
+const STOP = 'stop'
 
 let song
 let waveformCanvas
@@ -13,18 +16,11 @@ function preload() {
 }
 
 function togglePlay() {
-  if (!song.isPlaying()) {
-    playToggle.html('pause')
-    song.play()
-  }
-  else {
-    playToggle.html('play')
-    song.pause()
-  }
+  !song.isPlaying() ? song.play() : song.pause()
 }
 
-function stopSong() {
-  song.stop();
+function toggleLabel() {
+  !song.isPlaying() ? playToggle.html(PAUSE) : playToggle.html(PLAY)
 }
 
 function setup() {
@@ -32,14 +28,20 @@ function setup() {
   waveformCanvas = createGraphics(W, H)
   fft = new p5.FFT()
 
-  playToggle = createButton('play')
-  playToggle.mousePressed(togglePlay)
+  playToggle = createButton(PLAY)
+  playToggle.mousePressed(() => {
+    toggleLabel();
+    togglePlay();
+  })
   playToggle.style('margin-left:4px')
 
-  stopBtn = createButton('stop')
-  stopBtn.mousePressed(stopSong)
+  stopBtn = createButton(STOP)
+  stopBtn.mousePressed(() => {
+    playToggle.html(PLAY)
+    song.stop();
+  })
 
-  song.onended(stopSong)
+  song.onended(() => playToggle.html(PLAY))
 }
 
 function draw() {

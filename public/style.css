@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 canvas {
@@ -11,4 +12,11 @@ canvas {
 button {
   cursor: pointer;
   margin: 4px 2px;
+  width: 3rem;
 }
+
+/* body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
